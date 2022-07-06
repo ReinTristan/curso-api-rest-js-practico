@@ -1,0 +1,20 @@
+{
+  "name": "curso-api-rest-js-practico",
+  "version": "1.0.0",
+  "description": "Curso practico de consumo de API REST con JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReinTristan/curso-api-rest-js-practico.git"
+  },
+  "keywords": [],
+  "author": "ReinTristan <zetaeugene@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ReinTristan/curso-api-rest-js-practico/issues"
+  },
+  "homepage": "https://github.com/ReinTristan/curso-api-rest-js-practico#readme"
+}
