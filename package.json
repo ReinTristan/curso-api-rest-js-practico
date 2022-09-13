@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/ReinTristan/curso-api-rest-js-practico/issues"
   },
-  "homepage": "https://github.com/ReinTristan/curso-api-rest-js-practico#readme"
+  "homepage": "https://github.com/ReinTristan/curso-api-rest-js-practico#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }

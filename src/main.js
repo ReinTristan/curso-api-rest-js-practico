@@ -1,1 +1,52 @@
-import API_KEY from './secrets'
+import { API_KEY } from './secrets.js'
+
+const API_BASE = 'https://api.themoviedb.org/3'
+const IMG_BASE = 'https://image.tmdb.org/t/p/w300'
+
+async function getTrendingMoviesPreview() {
+	const res = await fetch(`${API_BASE}/trending/movie/day?api_key=${API_KEY}`)
+	const data = await res.json()
+	const movies = data.results
+	const trendingPreviewMoviesContainer = document.querySelector(
+		'#trendingPreview .trendingPreview-movieList'
+	)
+	movies.forEach((movie) => {
+		const movieContainer = document.createElement('div')
+		movieContainer.classList.add('movie-container')
+
+		const movieImg = document.createElement('img')
+		movieImg.classList.add('movie-img')
+		movieImg.setAttribute('alt', movie.title)
+		movieImg.setAttribute('src', `${IMG_BASE}${movie.poster_path}`)
+
+		movieContainer.append(movieImg)
+		trendingPreviewMoviesContainer.append(movieContainer)
+	})
+}
+
+async function getTrendingCategoriesPreview() {
+	const res = await fetch(`${API_BASE}/genre/movie/list?api_key=${API_KEY}`)
+	const data = await res.json()
+	const categories = data.genres
+
+	const previewCategoriesContainer = document.querySelector(
+		'#categoriesPreview .categoriesPreview-list'
+	)
+	categories.forEach((category) => {
+		const categoryContainer = document.createElement('div')
+		categoryContainer.classList.add('category-container')
+
+		const categoryTitle = document.createElement('h3')
+		categoryTitle.classList.add('category-title')
+		categoryTitle.setAttribute('id', `id${category.id}`)
+
+		const categoryTitleText = document.createTextNode(category.name)
+
+		categoryTitle.append(categoryTitleText)
+		categoryContainer.append(categoryTitle)
+		previewCategoriesContainer.append(categoryContainer)
+	})
+}
+
+getTrendingMoviesPreview()
+getTrendingCategoriesPreview()
