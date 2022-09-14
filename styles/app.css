@@ -181,6 +181,19 @@ footer {
 	flex-wrap: nowrap;
 }
 
+.header-searchForm input {
+	height: 48px;
+	width: 100%;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+}
+.header-searchForm button {
+	width: 56px;
+	height: 48px;
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+}
+
 /* Trending */
 
 .trendingPreview-header {
@@ -200,7 +213,7 @@ footer {
 	overflow-y: hidden;
 	white-space: nowrap;
 	height: 241px;
-	padding-left: 24px;
+	/* padding-left: 24px; */
 	padding-bottom: 16px;
 }
 
@@ -303,10 +316,10 @@ footer {
 
 /* Generic list */
 
-.generic-container {
+.genericList-container {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	flex-wrap: wrap;
 	padding: 32px 24px;
 }
