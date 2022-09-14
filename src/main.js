@@ -1,11 +1,18 @@
 import { API_KEY } from './secrets.js'
 
-const API_BASE = 'https://api.themoviedb.org/3'
 const IMG_BASE = 'https://image.tmdb.org/t/p/w300'
+const api = axios.create({
+	baseURL: 'https://api.themoviedb.org/3/',
+	headers: {
+		'Content-type': 'application/json;charset=utf-8',
+	},
+	params: {
+		api_key: API_KEY,
+	},
+})
 
 async function getTrendingMoviesPreview() {
-	const res = await fetch(`${API_BASE}/trending/movie/day?api_key=${API_KEY}`)
-	const data = await res.json()
+	const { data } = await api(`trending/movie/day`)
 	const movies = data.results
 	const trendingPreviewMoviesContainer = document.querySelector(
 		'#trendingPreview .trendingPreview-movieList'
@@ -25,8 +32,8 @@ async function getTrendingMoviesPreview() {
 }
 
 async function getTrendingCategoriesPreview() {
-	const res = await fetch(`${API_BASE}/genre/movie/list?api_key=${API_KEY}`)
-	const data = await res.json()
+	const { data } = await api(`genre/movie/list`)
+	console.log(data)
 	const categories = data.genres
 
 	const previewCategoriesContainer = document.querySelector(
@@ -50,3 +57,5 @@ async function getTrendingCategoriesPreview() {
 
 getTrendingMoviesPreview()
 getTrendingCategoriesPreview()
+
+export { getTrendingCategoriesPreview, getTrendingMoviesPreview }
