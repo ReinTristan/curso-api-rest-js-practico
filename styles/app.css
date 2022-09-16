@@ -94,6 +94,12 @@ button {
 	cursor: pointer;
 }
 
+img {
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 /* Shared */
 
 .header-container,
@@ -364,7 +370,7 @@ footer {
 }
 
 .movieDetail-description {
-	margin: 0 0 0 24px;
+	/* margin: 0 0 0 24px; */
 }
 .relatedMovies-container {
 	margin-top: 24px;
